@@ -1,5 +1,5 @@
 <template>
-  <select v-model="seleType" @input="msgNew(seleType)">
+  <select v-model="seleType"  @change="msgNew">
     <option
       v-for="(type, index) in msg"
       :key="index"
@@ -28,12 +28,10 @@ export default {
       this.seleType = val;
       console.log(val);
     });
-    console.log(this.seleType);
   },
   methods: {
-    msgNew(val) {
-      console.log(val);
-      this.$emit("input",val);
+    msgNew() {
+      this.$emit("input",this.seleType);
     },
   },
 };

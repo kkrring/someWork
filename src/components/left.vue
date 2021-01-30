@@ -62,8 +62,9 @@
                 type="text"
                 v-focus
                 v-model="item.typeName"
-                :readonly="names[index].typeName == '' ? false : 'readonly'"
+                :readonly="names[index] && names[index].typeName == '' ? false : 'readonly'"
                 @keyup.enter="save(item.typeName, index)"
+                @blur="save(item.typeName, index)"
                 class="diyType"
                 @dblclick="specify(item.typeName)"
                 :style="outlook"
